@@ -1,0 +1,24 @@
+/*================================================================================
+	Item Name: Stack - Responsive Admin Theme
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+/* The switch - the box around the slider */
+@import "https://code.highcharts.com/css/highcharts.css";
+
+#gantt {
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-treegrid-node-level-1 {
+    font-size: 13px;
+    font-weight: bold;
+    fill: black;
+}

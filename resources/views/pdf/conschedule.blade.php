@@ -1,0 +1,278 @@
+<html>
+<head>
+<style>
+body{margin-top:20px;
+background:#eee;
+}
+
+.invoice {
+    padding: 30px;
+}
+
+.invoice h2 {
+	margin-top: 0px;
+	line-height: 0.8em;
+}
+
+.invoice .small {
+	font-weight: 300;
+}
+
+.invoice hr {
+	margin-top: 10px;
+	border-color: #ddd;
+}
+
+.invoice .table tr.line {
+	border-bottom: 1px solid #ccc;
+}
+
+.invoice .table td {
+	border: none;
+}
+
+.invoice .identity {
+	margin-top: 10px;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.invoice .identity strong {
+	font-weight: 600;
+}
+
+
+.grid {
+    position: relative;
+	width: 100%;
+	background: #fff;
+	color: #666666;
+	border-radius: 2px;
+	margin-bottom: 25px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<!-- BEGIN INVOICE -->
+			<div class="col-xs-12">
+				<div class="grid invoice">
+					<div class="grid-body">
+						<div class="invoice-title">
+							<div class="row">
+								<div class="col-xs-12">
+								    <center><img src="assets/images/logo.png" alt="" height="100"></center>
+								</div>
+							</div>
+							<br>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-xs-6">
+								<address>
+									PT. Tekno Mandala Kreatif<br>
+									Intive Studio<br>
+									+62 812 3454 3344<br>
+								</address>
+							</div>
+						</div>
+                    <center><h3>Work Performance Data Update</h3></center>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    <tr>
+                                        <th>Abstrak</th>
+                                        <td>Dokumen Ini Merupakan dokumen yang berisi tentang hasil kinerja bedasarkan WBS, Cost dan Schedule dari pengerjaan suatu proyek</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dipersiapkan Oleh</th>
+                                        <td>PT. Tekno Mandala Kreatif</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Informasi Proyek</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <td><strong>No.</strong></td>
+                                        <td class="text-center"><strong>Name Project</strong></td>
+                                        <td class="text-center"><strong>Name Klien</strong></td>
+                                        <td class="text-center"><strong>Project Manager</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach ($data as $new)
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>{{ $new->name }}</strong><br></td>
+                                        <td><strong>PT. Tekno Industri</strong><br></td>
+                                        <td><strong>Aditya Rezky (PM)</strong><br></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Work Performance Data</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <td><strong>No.</strong></td>
+                                        <td class="text-center"><strong>Name PIC</strong></td>
+                                        <td class="text-center"><strong>Earned Value</strong></td>
+                                        <td class="text-center"><strong>Planned Value</strong></td>
+                                        <td class="text-center"><strong>Actual Cost</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach ($work as $w)
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>Muhammad Eastoni</strong><br></td>
+                                        <td><strong>{{ $w->estimate }}</strong><br></td>
+                                        <td><strong>{{ $w->planned }}</strong><br></td>
+                                        <td><strong>{{ $w->actual }}</strong><br></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Scope Performance Data</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <td><strong>No.</strong></td>
+                                        <td class="text-center"><strong>Name PIC</strong></td>
+                                        <td class="text-center"><strong>WBS Task</strong></td>
+                                        <td class="text-center"><strong>% Complete</strong></td>
+                                        <td class="text-center"><strong>% Spent</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach ($sc as $s)
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>Muhammad Eastoni</strong><br></td>
+                                        <td><strong>{{ $s->task }}</strong><br></td>
+                                        <td><strong>{{ $s->complete }}</strong><br></td>
+                                        <td><strong>{{ $s->spent }}</strong><br></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Cost Performance Data</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <td><strong>No.</strong></td>
+                                        <td class="text-center"><strong>Name PIC</strong></td>
+                                        <td class="text-center"><strong>Cost Variance</strong></td>
+                                        <td class="text-center"><strong>Cost Performance Index</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach ($cs as $c)
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>Muhammad Eastoni</strong><br></td>
+                                        <td><strong>{{ $c->variance }}</strong><br></td>
+                                        <td><strong>{{ $c->index }}</strong><br></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Schedule Performance Data</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                        <td><strong>No.</strong></td>
+                                        <td class="text-center"><strong>Name PIC</strong></td>
+                                        <td class="text-center"><strong>Schedule Variance</strong></td>
+                                        <td class="text-center"><strong>Schedule Performance Index</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    @foreach ($sch as $s)
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>Muhammad Eastoni</strong><br></td>
+                                        <td><strong>{{ $s->scvariance }}</strong><br></td>
+                                        <td><strong>{{ $s->scindex }}</strong><br></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>									
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Observation</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1 ?>
+                                    <tr>
+                                        <td><?php echo $i; $i++;?></td>
+                                        <td><strong>Dilihat dari beberapa data dan penyesuaian WBS, Cost serta schedule yang ada proyek dapat berjalan dengan baik untuk saat ini dan diperkirakan sesuai tujuan</strong><br></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>								
+                    </div>
+                <div class="row">
+                    <div class="col-md-9 text-right identity">
+                        <?php
+                        echo "Surabaya, " . date("Y-m-d"). "<br>";
+                        ?>
+                        <p>Pimpinan Intive Studio<br>
+                            <br>
+                            <p></p>
+                        <strong>M. Bayu Caesandra</strong></p>
+                    </div>
+                </div>	
+				</div>
+			</div>
+		</div>
+	<!-- END INVOICE -->
+	</div>
+</div>
+</body>
+</html>
